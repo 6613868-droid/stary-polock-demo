@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!--
+  «Старый Полоцк» — демонстрационный дизайн-концепт (неофициальный сайт).
+  Дизайн: Александра · Telegram @AlexandraHmeleva
+  Фотографии — временные референсы:
+  · Полоцк, Софийский собор — Wikimedia Commons, свободные лицензии:
+    «Вежы сафійскага сабора» (f/f2), «Полоцк.София — panoramio» (0/03),
+    «Belarus-Polatsk-Cathedral of Sophia-12» (6/64)
+  · Интерьер и натюрморт — свободные стоковые референсы (заменяются съёмкой заведения).
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Старый Полоцк — кафе-ресторан белорусской кухни в Полоцке · демо-концепт</title>
+<meta name="description" content="Демонстрационный дизайн-концепт сайта кафе-ресторана «Старый Полоцк» (Полоцк, проспект Франциска Скорины, 2): атмосфера, меню, галерея, контакты. Неофициальный сайт.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Старый Полоцк — кафе-ресторан белорусской кухни">
+<meta property="og:description" content="Тёплый свет, деревянные столы и домашняя кухня в сердце древнего Полоцка. Демонстрационный дизайн-концепт сайта.">
+<meta property="og:image" content="images/interior-1.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23431720'/%3E%3Cpath d='M32 12 L50 32 L32 52 L14 32 Z' fill='none' stroke='%23C9A96A' stroke-width='2.5'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23C9A96A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ базовые токены ============ */
+:root{
+  --paper:#F1EAE0;
+  --paper-2:#E7DDCE;
+  --choco:#1F1511;
+  --choco-2:#2A1D17;
+  --wine:#521E29;
+  --wine-2:#3D161F;
+  --gold:#A9834E;
+  --gold-soft:#C9A96A;
+  --ink:#2B211B;
+  --ink-muted:rgba(43,33,27,.64);
+  --cream:#F3ECDF;
+  --cream-muted:rgba(243,236,223,.66);
+  --hair-gold:rgba(169,131,78,.4);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Manrope',system-ui,sans-serif;
+  --container:1240px;
+  --gutter:clamp(20px,5vw,64px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-weight:400;
+  background:var(--choco);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--wine);color:var(--cream)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.container{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+section{scroll-margin-top:72px}
+
+/* тонкое зерно на тёмных секциях */
+.dark{position:relative;background:var(--choco);color:var(--cream)}
+.dark::after{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+.dark>*{position:relative;z-index:1}
+
+/* ============ типографика ============ */
+.eyebrow{
+  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;
+  color:var(--gold);display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:'';width:34px;height:1px;background:var(--gold);opacity:.7}
+.dark .eyebrow{color:var(--gold-soft)}
+.dark .eyebrow::before{background:var(--gold-soft)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04}
+.h2{font-size:clamp(2.4rem,5.2vw,4.4rem);letter-spacing:-.01em}
+.h2 em{font-style:italic;color:var(--wine)}
+.dark .h2 em{color:var(--gold-soft)}
+.lead{font-size:clamp(1rem,1.35vw,1.15rem);color:var(--ink-muted);max-width:56ch}
+.dark .lead{color:var(--cream-muted)}
+
+/* разделитель-орнамент (по мотивам старопечатных бордюров) */
+.ornament{
+  height:14px;margin:0 auto;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='14' viewBox='0 0 140 14'%3E%3Cg fill='none' stroke='%23A9834E' stroke-width='1'%3E%3Cline x1='0' y1='7' x2='52' y2='7'/%3E%3Cline x1='88' y1='7' x2='140' y2='7'/%3E%3Cpath d='M70 1.5 L75.5 7 L70 12.5 L64.5 7 Z'/%3E%3C/g%3E%3Cg fill='%23A9834E'%3E%3Ccircle cx='59' cy='7' r='1.2'/%3E%3Ccircle cx='81' cy='7' r='1.2'/%3E%3C/g%3E%3C/svg%3E") center repeat-x;
+}
+
+/* ============ шапка ============ */
+.header{
+  position:fixed;inset:0 0 auto 0;z-index:70;
+  transition:background .4s ease,box-shadow .4s ease,backdrop-filter .4s ease;
+}
+.header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-block:18px;transition:padding .4s ease;
+}
+.header.scrolled{background:rgba(31,21,17,.86);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(201,169,106,.16)}
+.header.scrolled .container{padding-block:12px}
+.brand{display:flex;align-items:baseline;gap:10px;color:var(--cream)}
+.brand svg{transform:translateY(2px)}
+.brand__name{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.brand__tag{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);white-space:nowrap}
+.nav{display:flex;gap:clamp(18px,2.6vw,38px)}
+.nav a{
+  font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--cream-muted);
+  padding-bottom:4px;border-bottom:1px solid transparent;transition:color .3s,border-color .3s;
+}
+.nav a:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
+.header__phone{font-family:var(--serif);font-size:1.05rem;color:var(--cream);letter-spacing:.03em;transition:color .3s}
+.header__phone:hover{color:var(--gold-soft)}
+.burger{
+  display:none;background:none;border:0;cursor:pointer;padding:10px;margin:-10px;z-index:70;
+}
+.burger span{display:block;width:26px;height:1.5px;background:var(--cream);margin:7px 0;transition:transform .35s ease,opacity .35s ease}
+.burger.open span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+
+/* мобильное меню */
+.mobile-menu{
+  position:fixed;inset:0;z-index:60;background:linear-gradient(160deg,var(--wine-2),var(--choco) 70%);
+  display:flex;flex-direction:column;justify-content:center;padding:0 var(--gutter);
+  opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s;
+}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{color:var(--cream)}
+.mobile-menu__link{
+  font-family:var(--serif);font-size:clamp(2rem,8vw,3rem);padding:14px 0;
+  border-bottom:1px solid rgba(201,169,106,.18);display:flex;justify-content:space-between;align-items:center;
+}
+.mobile-menu__link small{font-family:var(--sans);font-size:.7rem;letter-spacing:.25em;color:var(--gold-soft)}
+.mobile-menu__meta{margin-top:36px;color:var(--cream-muted);font-size:.9rem;display:grid;gap:6px}
+.mobile-menu__meta a{color:var(--gold-soft)}
+
+/* ============ первый экран ============ */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:96px;overflow:hidden}
+.hero__grid{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,48px);align-items:center;width:100%;
+}
+.hero__text{grid-column:1/8;position:relative;z-index:2}
+.hero__title{
+  font-size:clamp(3.6rem,10.5vw,9rem);color:var(--cream);margin:26px 0 30px;letter-spacing:-.015em;
+}
+.hero__title .t1{display:block;font-weight:400}
+.hero__title .t2{
+  display:block;font-style:italic;font-weight:500;color:var(--gold-soft);margin-left:.55em;
+}
+.hero__lead{margin-bottom:44px}
+.hero__cta{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  padding:19px 34px;border:1px solid var(--gold-soft);transition:all .35s ease;cursor:pointer;
+}
+.btn--solid{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+.btn--solid:hover{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--choco)}
+.btn--ghost{color:var(--cream-muted)}
+.btn--ghost:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
+.hero__photo{grid-column:8/13;position:relative;margin-block:20px}
+.hero__photo .ph{position:relative}
+.hero__photo img{width:100%;height:min(72vh,640px);object-fit:cover;filter:sepia(.14) saturate(.92) contrast(1.02)}
+.frame::before{
+  content:'';position:absolute;inset:0;border:1px solid var(--gold);opacity:.55;
+  transform:translate(16px,16px);pointer-events:none;transition:transform .5s ease;
+}
+.frame:hover::before{transform:translate(10px,10px)}
+.hero__photo figcaption{
+  margin-top:22px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-muted);
+  display:flex;gap:12px;align-items:center;
+}
+.hero__photo figcaption::before{content:'';width:22px;height:1px;background:var(--gold)}
+/* водяной орнамент позади заголовка */
+.hero__mark{
+  position:absolute;left:-4%;top:2%;width:min(46vw,560px);opacity:.07;pointer-events:none;
+}
+.hero__bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-block:26px;border-top:1px solid rgba(201,169,106,.14);margin-top:clamp(36px,6vh,64px);
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-muted);
+}
+.hero__scroll{display:inline-flex;align-items:center;gap:12px;transition:color .3s}
+.hero__scroll:hover{color:var(--gold-soft)}
+.hero__scroll .line{width:44px;height:1px;background:var(--gold);position:relative;overflow:hidden}
+.hero__scroll .line::after{content:'';position:absolute;inset:0;background:var(--cream);transform:translateX(-100%);animation:slide 2.6s ease-in-out infinite}
+@keyframes slide{50%{transform:translateX(0)}100%{transform:translateX(100%)}}
+
+/* ============ общая структура секций ============ */
+.section{padding-block:clamp(84px,11vw,150px)}
+.section__head{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,48px);margin-bottom:clamp(44px,6vw,84px)}
+.section__head .eyebrow{grid-column:1/4;align-self:start}
+.section__head .h2{grid-column:4/13}
+.light{background:var(--paper);color:var(--ink)}
+
+/* ============ атмосфера ============ */
+.atmo__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,48px)}
+.atmo__text{grid-column:1/6}
+.atmo__text p{margin-bottom:1.2em}
+.atmo__quote{
+  margin-top:38px;padding-left:26px;border-left:1px solid var(--gold);
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.3;color:var(--wine);
+}
+.atmo__photos{grid-column:6/13;position:relative;min-height:520px}
+.atmo__photos .ph-a{position:absolute;right:6%;top:0;width:min(62%,360px);z-index:1}
+.atmo__photos .ph-b{position:absolute;left:0;bottom:0;width:min(52%,300px);z-index:2}
+.atmo__photos img{width:100%;height:auto;filter:sepia(.12) saturate(.95)}
+.atmo__cap{position:absolute;right:0;bottom:8%;z-index:2;writing-mode:vertical-rl;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-muted)}
+
+/* ============ меню ============ */
+.menu{background:var(--wine-2);color:var(--cream);position:relative;overflow:hidden}
+.menu::before{
+  content:'СМАК';position:absolute;right:-1%;bottom:-4%;font-family:var(--serif);font-style:italic;
+  font-size:clamp(8rem,22vw,20rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(201,169,106,.14);
+  pointer-events:none;user-select:none;
+}
+.menu .h2 em{color:var(--gold-soft)}
+.menu__list{border-top:1px solid rgba(201,169,106,.25)}
+.menu__row{
+  display:grid;grid-template-columns:90px 1fr auto;gap:clamp(16px,3vw,44px);align-items:baseline;
+  padding:clamp(22px,3vw,34px) 8px;border-bottom:1px solid rgba(201,169,106,.25);
+  transition:background .35s ease,padding-left .35s ease;position:relative;
+}
+.menu__row:hover{background:rgba(201,169,106,.06);padding-left:22px}
+.menu__num{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--gold-soft)}
+.menu__name{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.5rem);font-weight:500;line-height:1.1}
+.menu__note{display:block;margin-top:6px;font-family:var(--sans);font-size:.86rem;letter-spacing:.04em;color:var(--cream-muted)}
+.menu__arrow{font-family:var(--serif);font-size:1.4rem;color:var(--gold-soft);opacity:0;transform:translateX(-12px);transition:all .35s ease}
+.menu__row:hover .menu__arrow{opacity:1;transform:none}
+.menu__demo{
+  margin-top:clamp(36px,5vw,56px);display:flex;gap:22px;align-items:flex-start;max-width:760px;
+  border:1px solid rgba(201,169,106,.3);padding:26px 30px;
+}
+.menu__demo svg{flex:none;margin-top:4px}
+.menu__demo p{font-size:.92rem;color:var(--cream-muted)}
+.menu__demo strong{color:var(--cream);font-weight:600}
+
+/* ============ галерея ============ */
+.gallery__grid{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.4vw,32px);
+  grid-auto-rows:clamp(90px,10vw,150px);
+}
+.g-item{position:relative;overflow:hidden}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.19,1,.22,1);filter:sepia(.16) saturate(.9) contrast(1.02)}
+.g-item:hover img{transform:scale(1.045)}
+.g-item figcaption{
+  position:absolute;left:0;bottom:0;padding:14px 18px;font-size:.66rem;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(243,236,223,.9);background:linear-gradient(to top,rgba(31,21,17,.72),transparent);
+  width:100%;
+}
+.g1{grid-column:1/6;grid-row:span 4}
+.g2{grid-column:6/10;grid-row:span 3}
+.g3{grid-column:10/13;grid-row:span 5}
+.g4{grid-column:6/10;grid-row:span 3;margin-top:calc(clamp(18px,2.4vw,32px)*-1)}
+.gallery__note{
+  margin-top:clamp(36px,5vw,56px);padding-top:22px;border-top:1px solid var(--hair-gold);
+  font-size:.8rem;color:var(--ink-muted);max-width:70ch;
+}
+
+/* ============ город ============ */
+.city{background:var(--paper-2)}
+.city__quote{
+  font-family:var(--serif);font-size:clamp(1.9rem,4vw,3.4rem);line-height:1.18;max-width:22ch;
+  margin-bottom:clamp(44px,6vw,72px);
+}
+.city__quote em{font-style:italic;color:var(--wine)}
+.city__photo{position:relative}
+.city__photo img{width:100%;height:clamp(320px,52vw,560px);object-fit:cover;filter:sepia(.2) saturate(.85) contrast(1.0)}
+.city__photo figcaption{
+  margin-top:16px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.city__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,44px);margin-top:clamp(40px,6vw,72px)}
+.city__fact{border-top:1px solid var(--hair-gold);padding-top:18px}
+.city__fact b{display:block;font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:500;color:var(--wine)}
+.city__fact span{font-size:.8rem;letter-spacing:.06em;color:var(--ink-muted)}
+
+/* ============ поводы ============ */
+.events__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,48px);align-items:start}
+.events__text{grid-column:1/7}
+.events__list{grid-column:7/13;display:grid;gap:0}
+.events__item{
+  display:flex;gap:22px;align-items:baseline;padding:22px 4px;border-bottom:1px solid rgba(201,169,106,.2);
+}
+.events__item:first-child{border-top:1px solid rgba(201,169,106,.2)}
+.events__item i{font-family:var(--serif);font-style:italic;color:var(--gold-soft);font-size:1.1rem}
+.events__item div b{display:block;font-family:var(--serif);font-size:1.35rem;font-weight:500;color:var(--cream)}
+.events__item div span{font-size:.84rem;color:var(--cream-muted)}
+
+/* ============ контакты ============ */
+.contacts__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,48px)}
+.contacts__info{grid-column:1/7;display:grid;gap:26px;align-content:start}
+.contact-row{border-top:1px solid var(--hair-gold);padding-top:18px}
+.contact-row small{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:8px}
+.contact-row .big{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2;color:var(--ink)}
+.contact-row a.big{border-bottom:1px solid transparent;transition:color .3s,border-color .3s;display:inline-block}
+.contact-row a.big:hover{color:var(--wine);border-color:var(--wine)}
+.contact-row .sub{font-size:.78rem;color:var(--ink-muted);margin-top:6px}
+.contacts__cta{grid-column:7/13;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.btn--wine{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+.btn--wine:hover{background:var(--choco);border-color:var(--choco)}
+.btn--outline{color:var(--ink);border-color:var(--ink)}
+.btn--outline:hover{background:var(--ink);color:var(--paper)}
+.contacts__cta .hint{font-size:.8rem;color:var(--ink-muted);max-width:44ch}
+
+/* ============ футер ============ */
+.footer{background:var(--choco);color:var(--cream-muted);padding:clamp(56px,8vw,90px) 0 34px}
+.footer .ornament{margin-bottom:clamp(36px,5vw,54px);opacity:.85}
+.footer__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,48px);align-items:start}
+.footer__brand{grid-column:1/6}
+.footer__brand .brand__name{font-size:1.7rem;color:var(--cream)}
+.footer__brand p{margin-top:14px;font-size:.86rem;max-width:38ch}
+.footer__nav{grid-column:6/10;display:grid;gap:10px}
+.footer__nav a{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;transition:color .3s}
+.footer__nav a:hover{color:var(--gold-soft)}
+.footer__designer{grid-column:10/13;justify-self:end;text-align:right;font-size:.82rem;display:grid;gap:6px}
+.footer__designer b{color:var(--cream);font-weight:600}
+.footer__designer a{color:var(--gold-soft);border-bottom:1px solid rgba(201,169,106,.4)}
+.footer__legal{
+  margin-top:clamp(40px,6vw,64px);padding-top:22px;border-top:1px solid rgba(201,169,106,.16);
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.72rem;letter-spacing:.04em;
+}
+.footer__legal .demo-note{color:var(--gold-soft);letter-spacing:.12em;text-transform:uppercase;font-size:.64rem}
+
+/* ============ анимации появления ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero__scroll .line::after{animation:none}
+  .g-item img{transition:none}
+}
+
+/* ============ адаптив ============ */
+@media (max-width:1100px){
+  .nav{display:none}
+  .header__phone{display:none}
+  .burger{display:block}
+  .hero__text{grid-column:1/13}
+  .hero__photo{grid-column:1/11;margin-top:14px}
+  .section__head .eyebrow{grid-column:1/13}
+  .section__head .h2{grid-column:1/13}
+  .atmo__text{grid-column:1/13}
+  .atmo__photos{grid-column:1/13;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px}
+  .atmo__photos .ph-a{position:static;width:100%;grid-row:span 2}
+  .atmo__photos .ph-b{position:static;width:100%;align-self:end}
+  .atmo__cap{display:none}
+  .events__text{grid-column:1/13}
+  .events__list{grid-column:1/13}
+  .contacts__info{grid-column:1/13}
+  .contacts__cta{grid-column:1/13;flex-direction:row;flex-wrap:wrap}
+}
+@media (max-width:760px){
+  .hero{padding-top:84px}
+  .hero__photo img{height:min(58vh,480px)}
+  .hero__bottom{flex-direction:column;gap:14px;align-items:flex-start}
+  .menu__row{grid-template-columns:52px 1fr}
+  .menu__arrow{display:none}
+  .menu__num{font-size:1.2rem}
+  .gallery__grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(80px,14vw,120px)}
+  .g1{grid-column:1/7;grid-row:span 4}
+  .g2{grid-column:1/4;grid-row:span 3;margin-top:0}
+  .g3{grid-column:4/7;grid-row:span 3}
+  .g4{grid-column:1/7;grid-row:span 3;margin-top:0}
+  .city__facts{grid-template-columns:1fr}
+  .contacts__cta{flex-direction:column}
+  .footer__brand{grid-column:1/13}
+  .footer__nav{grid-column:1/13}
+  .footer__designer{grid-column:1/13;justify-self:start;text-align:left}
+  .footer__legal{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= ШАПКА ================= -->
+<header class="header" id="header">
+  <div class="container">
+    <a class="brand" href="#top" aria-label="Старый Полоцк — наверх">
+      <svg width="18" height="18" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 8 L54 32 L32 56 L10 32 Z" stroke="#C9A96A" stroke-width="3"/>
+        <circle cx="32" cy="32" r="5" fill="#C9A96A"/>
+      </svg>
+      <span class="brand__name">Старый Полоцк</span>
+      <span class="brand__tag">кафе-ресторан</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#atmosphere">Атмосфера</a>
+      <a href="#menu">Меню</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#events">Поводы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="header__phone" href="tel:+375333968111">+375 33 396-81-11</a>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- мобильное меню -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a class="mobile-menu__link" href="#atmosphere"><span>Атмосфера</span><small>01</small></a>
+  <a class="mobile-menu__link" href="#menu"><span>Меню</span><small>02</small></a>
+  <a class="mobile-menu__link" href="#gallery"><span>Галерея</span><small>03</small></a>
+  <a class="mobile-menu__link" href="#events"><span>Поводы</span><small>04</small></a>
+  <a class="mobile-menu__link" href="#contacts"><span>Контакты</span><small>05</small></a>
+  <div class="mobile-menu__meta">
+    <span>Полоцк, просп. Франциска Скорины, 2</span>
+    <a href="tel:+375333968111">+375 33 396-81-11</a>
+  </div>
+</div>
+
+<!-- ================= ПЕРВЫЙ ЭКРАН ================= -->
+<section class="hero dark" id="top">
+  <svg class="hero__mark" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M100 10 L190 100 L100 190 L10 100 Z" stroke="#C9A96A" stroke-width="1"/>
+    <path d="M100 45 L155 100 L100 155 L45 100 Z" stroke="#C9A96A" stroke-width="1"/>
+    <path d="M100 78 L122 100 L100 122 L78 100 Z" stroke="#C9A96A" stroke-width="1"/>
+    <circle cx="100" cy="100" r="4" fill="#C9A96A"/>
+  </svg>
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <p class="eyebrow reveal">Полоцк · Беларусь · белорусская кухня</p>
+      <h1 class="hero__title reveal" data-delay="1"><span class="t1">Старый</span><span class="t2">Полоцк</span></h1>
+      <p class="lead reveal" data-delay="2">Тёплый свет, деревянные столы и домашняя кухня, которую помнишь с детства. Место, куда приходят не поесть, а побыть.</p>
+      <div class="hero__cta reveal" data-delay="3">
+        <a class="btn btn--solid" href="#menu">Открыть меню</a>
+        <a class="btn btn--ghost" href="#contacts">Как добраться</a>
+      </div>
+    </div>
+    <figure class="hero__photo reveal" data-delay="2">
+      <div class="ph frame">
+        <img id="heroImg" src="images/interior-1.jpg" alt="Тёмный уютный зал со свечами и деревянной мебелью — временный фото-референс атмосферы кафе" fetchpriority="high">
+      </div>
+      <figcaption>Атмосфера · временный фото-референс</figcaption>
+    </figure>
+  </div>
+  <div class="container">
+    <div class="hero__bottom">
+      <a class="hero__scroll" href="#atmosphere"><span class="line" aria-hidden="true"></span>Листайте вниз</a>
+      <span>Полоцк · просп. Франциска Скорины, 2</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= АТМОСФЕРА ================= -->
+<section class="section light" id="atmosphere">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow reveal">01 — Атмосфера</p>
+      <h2 class="h2 reveal" data-delay="1">Место, в котором время <em>идёт медленнее</em></h2>
+    </div>
+    <div class="atmo__grid">
+      <div class="atmo__text reveal">
+        <p class="lead">«Старый Полоцк» — из тех кафе, куда заходишь погреться, а остаёшься на весь вечер. Здесь нет нарочитого лоска: только дерево, свечи, запах домашней кухни и разговоры, которые не хочется заканчивать.</p>
+        <p class="lead">Уютным место делают не вещи, а детали — и здесь они собраны бережно: тёплый свет над столами, простая честная еда, тишина, в которой слышно, как за окном проходит старый город.</p>
+        <blockquote class="atmo__quote">Очень уютно и атмосферно — впечатление гостя, ради которого всё и затевалось.</blockquote>
+      </div>
+      <div class="atmo__photos">
+        <figure class="ph-a frame reveal" data-delay="1">
+          <img src="images/bread-1.jpg" alt="Натюрморт: свежий хлеб, мёд, сыр и бокал вина на деревянном столе — временный референс" loading="lazy" decoding="async">
+        </figure>
+        <figure class="ph-b frame reveal" data-delay="2">
+          <img src="images/interior-1.jpg" alt="Уголок зала при свечах — временный референс интерьера" loading="lazy" decoding="async">
+        </figure>
+        <span class="atmo__cap">домашний стол · тёплый свет</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= МЕНЮ ================= -->
+<section class="section dark menu" id="menu">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow reveal">02 — Меню</p>
+      <h2 class="h2 reveal" data-delay="1">Белорусская кухня — <em>домашняя и честная</em></h2>
+    </div>
+    <ul class="menu__list reveal">
+      <li class="menu__row">
+        <span class="menu__num">I.</span>
+        <span><span class="menu__name">Горячие блюда домашней кухни</span><span class="menu__note">Сытая классика белорусского стола</span></span>
+        <span class="menu__arrow" aria-hidden="true">→</span>
+      </li>
+      <li class="menu__row">
+        <span class="menu__num">II.</span>
+        <span><span class="menu__name">Супы и похлёбки</span><span class="menu__note">На первое — неспешно, как дома</span></span>
+        <span class="menu__arrow" aria-hidden="true">→</span>
+      </li>
+      <li class="menu__row">
+        <span class="menu__num">III.</span>
+        <span><span class="menu__name">Закуски и разносолы</span><span class="menu__note">К хлебу, к разговору, к долгому вечеру</span></span>
+        <span class="menu__arrow" aria-hidden="true">→</span>
+      </li>
+      <li class="menu__row">
+        <span class="menu__num">IV.</span>
+        <span><span class="menu__name">Блины и десерты</span><span class="menu__note">Тёплое и домашнее — к чаю</span></span>
+        <span class="menu__arrow" aria-hidden="true">→</span>
+      </li>
+      <li class="menu__row">
+        <span class="menu__num">V.</span>
+        <span><span class="menu__name">Напитки</span><span class="menu__note">Травяной чай, морсы, кофе</span></span>
+        <span class="menu__arrow" aria-hidden="true">→</span>
+      </li>
+    </ul>
+    <div class="menu__demo reveal">
+      <svg width="30" height="30" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 8 L54 32 L32 56 L10 32 Z" stroke="#C9A96A" stroke-width="2.5"/>
+        <circle cx="32" cy="32" r="4" fill="#C9A96A"/>
+      </svg>
+      <p><strong>Это демонстрационная структура разделов.</strong> На рабочем сайте здесь будет настоящее меню «Старого Полоцка» — блюда, описания и актуальные цены, подтверждённые заведением. Раздел свёрстан так, чтобы меню было легко обновлять.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ГАЛЕРЕЯ ================= -->
+<section class="section light" id="gallery">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow reveal">03 — Галерея</p>
+      <h2 class="h2 reveal" data-delay="1">Пространство <em>и свет</em></h2>
+    </div>
+    <div class="gallery__grid">
+      <figure class="g-item g1 reveal">
+        <img src="images/interior-1.jpg" alt="Зал при свечах с деревянными балками — временный референс" loading="lazy" decoding="async">
+        <figcaption>01 — Вечерний зал</figcaption>
+      </figure>
+      <figure class="g-item g2 reveal" data-delay="1">
+        <img src="images/bread-1.jpg" alt="Хлеб, мёд и вино на деревянном столе — временный референс" loading="lazy" decoding="async">
+        <figcaption>02 — Домашний стол</figcaption>
+      </figure>
+      <figure class="g-item g3 reveal" data-delay="2">
+        <img src="images/interior-3.jpg" alt="Тёмный зал с латунной люстрой — временный референс" loading="lazy" decoding="async">
+        <figcaption>03 — Тёплый свет</figcaption>
+      </figure>
+      <figure class="g-item g4 reveal" data-delay="3">
+        <img src="images/polock-sofia-2.jpg" alt="Софийский собор Полоцка через реку — вид на старый город" loading="lazy" decoding="async">
+        <figcaption>04 — Старый город</figcaption>
+      </figure>
+    </div>
+    <p class="gallery__note reveal">Фотографии на странице — временные референсы из открытых источников. После фотосъёмки заведения они заменяются оригинальными кадрами «Старого Полоцка» без изменения вёрстки.</p>
+  </div>
+</section>
+
+<!-- ================= ГОРОД ================= -->
+<section class="section city">
+  <div class="container">
+    <p class="eyebrow reveal" style="margin-bottom:26px">Интерлюдия — город</p>
+    <p class="city__quote reveal" data-delay="1">Кафе носит имя города, которому <em>больше одиннадцати веков</em>, — и это не случайность, а характер.</p>
+    <figure class="city__photo frame reveal" data-delay="2">
+      <img src="images/polock-sofia-4.jpg" alt="Софийский собор в Полоцке среди зелени — символ города" loading="lazy" decoding="async">
+      <figcaption><span>Софийский собор Полоцка</span><span>фото — Wikimedia Commons, свободная лицензия</span></figcaption>
+    </figure>
+    <div class="city__facts">
+      <div class="city__fact reveal"><b>862</b><span>год первого упоминания Полоцка в летописи</span></div>
+      <div class="city__fact reveal" data-delay="1"><b>София</b><span>собор XI века — один из древнейших храмов Восточной Европы</span></div>
+      <div class="city__fact reveal" data-delay="2"><b>Хомлины</b><span>полоцкие домовые из городских легенд — тёплый символ города</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ПОВОДЫ ================= -->
+<section class="section dark" id="events">
+  <div class="container">
+    <div class="events__grid">
+      <div class="events__text">
+        <p class="eyebrow reveal">04 — Поводы</p>
+        <h2 class="h2 reveal" data-delay="1" style="margin-top:22px">Раздел для <em>особых поводов</em></h2>
+        <p class="lead reveal" data-delay="2" style="margin-top:26px">Готовая витрина для афиши кафе: сезонные предложения, тёплые вечера и новости кухни появятся здесь по мере наполнения. Вопросы о возможностях зала — по телефону.</p>
+      </div>
+      <div class="events__list reveal" data-delay="2">
+        <div class="events__item"><i>i.</i><div><b>Сезонные предложения</b><span>что сейчас на кухне — главная новость раздела</span></div></div>
+        <div class="events__item"><i>ii.</i><div><b>Тёплые вечера</b><span>повод заглянуть, когда город уже уснул</span></div></div>
+        <div class="events__item"><i>iii.</i><div><b>Новости кухни</b><span>новые блюда и вкусы — первыми узнают гости сайта</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КОНТАКТЫ ================= -->
+<section class="section light" id="contacts">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow reveal">05 — Контакты</p>
+      <h2 class="h2 reveal" data-delay="1">Найдите нас <em>в старом городе</em></h2>
+    </div>
+    <div class="contacts__grid">
+      <div class="contacts__info">
+        <div class="contact-row reveal">
+          <small>Адрес</small>
+          <span class="big">Беларусь, г. Полоцк,<br>проспект Франциска Скорины, 2</span>
+        </div>
+        <div class="contact-row reveal" data-delay="1">
+          <small>Телефон</small>
+          <a class="big" href="tel:+375333968111">+375 33 396-81-11</a>
+          <p class="sub">Номер указан по данным открытой карточки заведения.</p>
+        </div>
+        <div class="contact-row reveal" data-delay="2">
+          <small>Часы работы</small>
+          <span class="big">Уточняйте по телефону</span>
+        </div>
+      </div>
+      <div class="contacts__cta reveal" data-delay="2">
+        <a class="btn btn--wine" href="tel:+375333968111">Позвонить</a>
+        <a class="btn btn--outline" href="https://yandex.by/maps/?text=%D0%9F%D0%BE%D0%BB%D0%BE%D1%86%D0%BA%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A4%D1%80%D0%B0%D0%BD%D1%86%D0%B8%D1%81%D0%BA%D0%B0%20%D0%A1%D0%BA%D0%BE%D1%80%D0%B8%D0%BD%D1%8B%2C%202" target="_blank" rel="noopener">Маршрут в Яндекс Картах</a>
+        <p class="hint">Кафе находится в самом городе — до Софийского собора и Набережной руки подать.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ФУТЕР ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="ornament" aria-hidden="true"></div>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="brand__name">Старый Полоцк</span>
+        <p>Кафе-ресторан белорусской кухни в самом сердце древнего Полоцка. Тёплый свет, домашний вкус и тишина старого города.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Навигация в подвале">
+        <a href="#atmosphere">Атмосфера</a>
+        <a href="#menu">Меню</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#events">Поводы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="footer__designer">
+        <span>Дизайн-концепт</span>
+        <b>Александра</b>
+        <a href="https://t.me/AlexandraHmeleva" target="_blank" rel="noopener">Telegram · @AlexandraHmeleva</a>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span class="demo-note">Демонстрационный дизайн-концепт · Неофициальный сайт</span>
+      <span>Фотографии — временные референсы из открытых источников (Wikimedia Commons и свободные стоки)</span>
+      <span>© <span id="year">2026</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* шапка при прокрутке */
+  var header = document.getElementById('header');
+  var onScroll = function(){
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* мобильное меню */
+  var burger = document.getElementById('burger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var toggleMenu = function(open){
+    burger.classList.toggle('open', open);
+    mobileMenu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    mobileMenu.setAttribute('aria-hidden', !open);
+    burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  burger.addEventListener('click', function(){
+    toggleMenu(!mobileMenu.classList.contains('open'));
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ toggleMenu(false); });
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) toggleMenu(false);
+  });
+
+  /* появление блоков */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) {
+          var el = en.target;
+          var d = parseInt(el.getAttribute('data-delay') || '0', 10);
+          setTimeout(function(){ el.classList.add('in'); }, d * 110);
+          io.unobserve(el);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* лёгкий параллакс первого фото (только desktop, без reduce-motion) */
+  var heroImg = document.getElementById('heroImg');
+  var fine = window.matchMedia('(min-width: 1100px)').matches;
+  var noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroImg && fine && !noMotion) {
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        heroImg.style.transform = 'translateY(' + Math.min(y * .08, 60) + 'px) scale(1.06)';
+      }
+    }, {passive:true});
+    heroImg.style.transform = 'scale(1.06)';
+  }
+
+  /* год в футере */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
